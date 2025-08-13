@@ -1,0 +1,5 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/eucomida_database?serverTimezone=UTC
+    username: eucomida_user
+    password: eucomida_pass
