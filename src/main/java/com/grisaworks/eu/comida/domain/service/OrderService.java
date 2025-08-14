@@ -15,10 +15,10 @@ public class OrderService {
     public Order save(Order order) {
         return orderRepository.save(order);
     }
-    public String getOrderStatus (Long orderId) {
-        return orderRepository.findById(orderId).orElseThrow(
-                () -> new RuntimeException(String.format("Order with id %d not found.", orderId))
-                ).getStatus().toString();
-    }
 
+    public String getOrderStatus(Long orderId) {
+        return orderRepository.findById(orderId).orElseThrow(
+                () -> new RuntimeException(String.format("order with id %d not found.", orderId))
+        ).getStatus().toString();
+    }
 }

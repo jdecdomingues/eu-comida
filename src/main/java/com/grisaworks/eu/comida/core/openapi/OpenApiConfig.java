@@ -7,10 +7,12 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class OpenApiConfig {
-    private static final String DESCRIPTION = "REST APIs of the eucomida project.";
+
+    private static final String DESCRIPTION = "REST APIs of the eucomida project. All endpoints are protected. " +
+            "If you have any questions about how to access them, please contact the project's development team.";
 
     @Bean
-    public OpenAPI springDocsOpenApi(){
+    public OpenAPI springDocsOpenApi() {
         return new OpenAPI().info(new Info().title("EuComida Documentation")
                 .description(DESCRIPTION));
     }

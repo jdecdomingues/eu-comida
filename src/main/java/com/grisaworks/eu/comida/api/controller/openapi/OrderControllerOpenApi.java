@@ -12,7 +12,6 @@ public interface OrderControllerOpenApi {
     @Operation(summary = "Create a new order.")
     Order create(@RequestBody Order order);
 
-    @Operation(summary = "Create a new order.") // Note: Summary appears duplicated in the image
+    @Operation(summary = "Get a status from an Order.")
     String getOrderStatus(@PathVariable Long orderId);
-
 }
