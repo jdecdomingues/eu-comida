@@ -1,6 +1,8 @@
 package com.grisaworks.eu.comida.api.controller;
 
 import com.grisaworks.eu.comida.api.controller.openapi.OrderControllerOpenApi;
+import com.grisaworks.eu.comida.api.dto.OrderCreateDto;
+import com.grisaworks.eu.comida.api.dto.OrderResponseDto;
 import com.grisaworks.eu.comida.domain.model.Order;
 import com.grisaworks.eu.comida.domain.service.OrderService;
 import lombok.RequiredArgsConstructor;
@@ -24,8 +26,9 @@ private final OrderService orderService;
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Order create(@RequestBody Order order) {
-       return orderService.save(order);
+    public OrderResponseDto create(@RequestBody OrderCreateDto orderDto) {
+       Order toSave = orderDto.toEntity();
+       return OrderResponseDto.fromEntity(orderService.save(toSave));
     }
 
     @GetMapping("{orderId}/status")

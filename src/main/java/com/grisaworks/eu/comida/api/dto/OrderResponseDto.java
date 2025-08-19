@@ -14,6 +14,9 @@ public class OrderResponseDto {
     BigDecimal totalValue;
     OrderStatus status;
 
+    /**
+     * Cria um DTO de resposta a partir da entidade Order.
+     */
     public static OrderResponseDto fromEntity(Order order) {
         return new OrderResponseDto(
                 order.getId(),

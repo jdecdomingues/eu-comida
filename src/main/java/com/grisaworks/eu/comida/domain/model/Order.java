@@ -30,6 +30,7 @@ public class Order {
     private BigDecimal totalValue;
 
     @Enumerated(EnumType.STRING)
+    @Builder.Default
     private OrderStatus status = OrderStatus.CREATED;
 
 

@@ -8,32 +8,31 @@ import lombok.Data;
 
 import java.math.BigDecimal;
 
-    @Data
-    public class OrderCreateDto {
+@Data
+public class OrderCreateDto {
 
-        @NotNull
-        @DecimalMin(value = "0.00")
-        private BigDecimal subtotal;
+    @NotNull
+    @DecimalMin(value = "0.01")
+    private BigDecimal subtotal;
 
-        @NotNull
-        @PositiveOrZero
-        private BigDecimal freightRate;
+    @NotNull
+    @PositiveOrZero
+    private BigDecimal freightRate;
 
-        @NotNull
-        @DecimalMin(value = "0.00")
-        private BigDecimal totalValue;
+    @NotNull
+    @DecimalMin(value = "0.01")
+    private BigDecimal totalValue;
 
-        /**
-         * Converte este DTO em uma entidade Order.
-         */
-        public Order toEntity() {
-            return Order.builder()
-                    .subtotal(this.subtotal)
-                    .freightRate(this.freightRate)
-                    .totalValue(this.totalValue)
-                    // status já vem como CREATED no modelo
-                    .build();
-        }
+    /**
+     * Converte este DTO em uma entidade Order.
+     */
+    public Order toEntity() {
+        return Order.builder()
+                .subtotal(this.subtotal)
+                .freightRate(this.freightRate)
+                .totalValue(this.totalValue)
+                // status já vem como CREATED no modelo
+                .build();
     }
 
-
+}
